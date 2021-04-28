@@ -22,3 +22,6 @@ Original fw here https://github.com/afch/NixieClock
    - Tubes have a random flicker effect that follows RGB brightness
 10. Up/down button hold function fixed
 11. Some general tweaking, cleaning & fixing
+
+Slot machine + fade effects:
+https://www.youtube.com/watch?v=ue7s6oBZFs8
