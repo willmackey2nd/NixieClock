@@ -20,8 +20,8 @@ Original fw here https://github.com/afch/NixieClock
    - Used RCWL0516 radar with +5VDC supply and signal connected to D8 pin. Has a quite suitable 1 room coverage.
    - Tubes & leds shutdown after set time (1h) if no motion is detected
 10. Added a fade in/out animation
-   - RGB fades in/out from current color
-   - Tubes have a random flicker effect that follows RGB brightness
+    - RGB fades in/out from current color
+    - Tubes have a random flicker effect that follows RGB brightness
 11. Up/down button hold function fixed
 12. Some general tweaking, cleaning & fixing
 
