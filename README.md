@@ -15,7 +15,7 @@ Original fw here https://github.com/afch/NixieClock
    - On/off, sleep start time (HH:mm) and end time (HH:mm)
    - Overrides motion detection
 8. Added motion detection auto sleep
-   - Used RCWL0516 with +5VDC supply and signal connected to D8 pin
+   - Used RCWL0516 radar with +5VDC supply and signal connected to D8 pin
    - Tubes & leds shutdown after set time (1h) if no motion is detected
 9. Added fade in/out animation
    - RGB fades in/out from current color
