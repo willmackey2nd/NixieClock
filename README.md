@@ -3,6 +3,7 @@ Modded fw for gra & afch NCS314_v3.4 board
 
 Original fw here https://github.com/afch/NixieClock
 
+# Changes:
 1. Removed IR control support
 2. Removed intro song
 3. Removed alarm menu
