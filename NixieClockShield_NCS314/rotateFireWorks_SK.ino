@@ -102,11 +102,7 @@ void rotateFireWorks()
 
 float fadeR, fadeG, fadeB;
 float fadeRs, fadeGs, fadeBs;
-float fadeRt, fadeGt, fadeBt;
-byte fadeRm, fadeGm, fadeBm;
 byte fadeState;
-
-
 
 void fadeInOut() {
   const float fadeSpeed = 0.01;
@@ -117,17 +113,14 @@ void fadeInOut() {
 
       if (fadeOut) {
 
-        fadeRm = rgbFader.R;
-        fadeGm = rgbFader.G;
-        fadeBm = rgbFader.B;
         fadeR  = (float)rgbFader.R;
         fadeG  = (float)rgbFader.G;
         fadeB  = (float)rgbFader.B;
         fadeRs = fadeSpeed * rgbFader.R;
         fadeGs = fadeSpeed * rgbFader.G;
         fadeBs = fadeSpeed * rgbFader.B;
-        Serial.println("fade out started");
-        Serial.println(fadeRs);
+       // Serial.println("fade out started");
+       // Serial.println(fadeRs);
         fadeState = 10;
 
       } else if (fadeIn) {
@@ -136,31 +129,14 @@ void fadeInOut() {
         fadeR = 0;
         fadeG = 0;
         fadeB = 0;
-
-        fadeRt = (float)fadeRm;
-        fadeGt = (float)fadeGm;
-        fadeBt = (float)fadeBm;
         fadeRs = fadeSpeed * rgbFader.R;
         fadeGs = fadeSpeed * rgbFader.G;
         fadeBs = fadeSpeed * rgbFader.B;
-        Serial.println("fade in finished");
-        Serial.println(fadeRs);
+       // Serial.println("fade in finished");
+      //  Serial.println(fadeRs);
         fadeState = 20;
 
       }
-      break;
-
-
-    case 1: // Cancel fadeout and fade in to where fadeout began
-
-      fadeRt = (float)fadeRm;
-      fadeGt = (float)fadeGm;
-      fadeBt = (float)fadeBm;
-      fadeRs = fadeSpeed * rgbFader.R;
-      fadeGs = fadeSpeed * rgbFader.G;
-      fadeBs = fadeSpeed * rgbFader.B;
-      fadeState = 20;
-
       break;
 
 
@@ -186,7 +162,7 @@ void fadeInOut() {
       }
       pixels.show();
 
-      if (fadeR == 0 && fadeG == 0 && fadeB == 0) {
+      if (fadeR <= 0 && fadeG <= 0 && fadeB <= 0) {
         RGBLedsOn = false;
         fadeOut = false;
         fadeState = 0;
@@ -194,7 +170,7 @@ void fadeInOut() {
         Serial.println("fade out finished");
       } else if (fadeIn) {
         fadeOut = false;
-        fadeState = 1;
+        fadeState = 20;
         Serial.println("fade out canceled");
       }
       break;
@@ -202,9 +178,9 @@ void fadeInOut() {
 
     case 20:
 
-      fadeR = min(fadeR + fadeRs, fadeRt);
-      fadeG = min(fadeG + fadeGs, fadeGt);
-      fadeB = min(fadeB + fadeBs, fadeBt);
+      fadeR = min(fadeR + fadeRs, (float)rgbFader.R);
+      fadeG = min(fadeG + fadeGs, (float)rgbFader.G);
+      fadeB = min(fadeB + fadeBs, (float)rgbFader.B);
 
       /*
             Serial.print(fadeR); Serial.print("  ");
@@ -221,15 +197,15 @@ void fadeInOut() {
       }
       pixels.show();
 
-      if (fadeR == fadeRt && fadeG == fadeGt && fadeB == fadeBt) {
+      if (fadeR >= (float)rgbFader.R && fadeG >= (float)rgbFader.G && fadeB >= (float)rgbFader.B) {
         RGBLedsOn = true;
         fadeIn = false;
         fadeState = 0;
-        Serial.println("fade in finished");
+        //Serial.println("fade in finished");
       } else if (fadeOut) {
         fadeIn = false;
-        fadeState = 0;
-        Serial.println("fade in canceled");
+        fadeState = 10;
+        //Serial.println("fade in canceled");
       }
       break;
 
