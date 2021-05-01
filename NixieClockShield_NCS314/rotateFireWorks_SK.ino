@@ -116,9 +116,9 @@ void fadeInOut() {
         fadeR  = (float)rgbFader.R;
         fadeG  = (float)rgbFader.G;
         fadeB  = (float)rgbFader.B;
-        fadeRs = fadeSpeed * rgbFader.R;
-        fadeGs = fadeSpeed * rgbFader.G;
-        fadeBs = fadeSpeed * rgbFader.B;
+        fadeRs = fadeSpeed * (float)rgbFader.R;
+        fadeGs = fadeSpeed * (float)rgbFader.G;
+        fadeBs = fadeSpeed * (float)rgbFader.B;
        // Serial.println("fade out started");
        // Serial.println(fadeRs);
         fadeState = 10;
@@ -129,9 +129,9 @@ void fadeInOut() {
         fadeR = 0;
         fadeG = 0;
         fadeB = 0;
-        fadeRs = fadeSpeed * rgbFader.R;
-        fadeGs = fadeSpeed * rgbFader.G;
-        fadeBs = fadeSpeed * rgbFader.B;
+        fadeRs = fadeSpeed * (float)rgbFader.R;
+        fadeGs = fadeSpeed * (float)rgbFader.G;
+        fadeBs = fadeSpeed * (float)rgbFader.B;
        // Serial.println("fade in finished");
       //  Serial.println(fadeRs);
         fadeState = 20;
